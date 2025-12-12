@@ -1,0 +1,320 @@
+
+  :root{
+    --accent: #457e93ff; /* user's requested panel color */
+    --accent-strong: #355f72;
+    --card-bg: rgba(255,255,255,0.92);
+  }
+
+  /* Hide visual scrollbars globally but keep scrolling functionality */
+  html, body, #root, .app-bg, .landing-root {
+    height: 100%;
+    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  html::-webkit-scrollbar, body::-webkit-scrollbar, #root::-webkit-scrollbar, .app-bg::-webkit-scrollbar, .landing-root::-webkit-scrollbar {
+    display: none; /* Safari/WebKit */
+  }
+
+  /* App-wide background (same look as landing) */
+  .app-bg{
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(237, 237, 237, 0.88)), url('https://www.shutterstock.com/image-vector/international-languages-collage-language-school-260nw-2558920761.jpg');
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    flex-direction:column;
+    overflow: hidden;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, rgb(117, 237, 233) 0%, rgb(187, 233, 255) 100%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Landing-specific layout */
+  .landing-root {
+    height: 100vh; /* clamp to viewport to avoid body scroll */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden; /* hide scrollbar on landing page */
+  }
+
+  /* Hide scrollbar for webkit browsers inside landing-root */
+  .landing-root::-webkit-scrollbar { display: none; }
+  .landing-root { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 40px; /* larger header to fit bigger logo */
+    min-height: 110px;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Give the header the landing accent color across all pages */
+  .site-header{
+    background: linear-gradient(90deg, rgba(69,126,147,0.98), rgba(53,95,114,0.98));
+    color: white;
+    width: 100%;
+    box-shadow: 0 6px 24px rgba(8,19,28,0.18);
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(4px);
+  }
+
+  .logo-btn{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .logo-inner{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: white;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    box-shadow: 0 10px 25px rgba(69,126,147,0.18);
+    font-size: 26px;
+  }
+
+  .logo-img{ width:100%; height:100%; border-radius:50%; object-fit:cover; display:block }
+
+  /* back button in header */
+  .back-btn{
+    background: rgba(255,255,255,0.06);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 160ms ease, background 160ms ease;
+  }
+
+  .back-btn:hover{ transform: translateX(-3px); background: rgba(255,255,255,0.12); }
+
+  .auth-buttons { display: flex; gap: 12px; align-items: center; }
+
+  .btn-link { background: transparent; color: white; padding: 8px 14px; border-radius: 12px; font-weight:700; }
+  .btn-outline { background: rgba(255,255,255,0.12); color: white; padding: 10px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); }
+  .btn-primary { /* ensure primary looks good on colored header */
+    background: linear-gradient(135deg, #fff 0%, #f2f7fb 100%);
+    color: var(--accent-strong);
+  }
+
+
+  .hero{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px; /* taller so content covers vertically */
+    min-height: calc(100vh - 110px);
+  }
+
+  /* make hero content visually merged with background (no colored card) */
+  /* removed hero-card as content now sits directly on background */
+  .hero-title{ font-size: 52px; color: var(--accent-strong); margin-bottom: 10px; text-shadow: 0 1px 0 rgba(255,255,255,0.6); }
+  .hero-sub{ color: rgba(0,0,0,0.78); font-size: 18px; margin-bottom: 10px; }
+
+  /* Feature boxes */
+  .features{ width:100%; }
+  .feature-box{
+    background: rgba(255,255,255,0.72);
+    min-width: 160px;
+    max-width: 240px;
+    padding: 20px 16px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 240ms cubic-bezier(.2,.9,.3,1), background 240ms ease, box-shadow 240ms ease, opacity 240ms ease;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(8,19,28,0.08);
+    user-select: none;
+    transform-origin: center center;
+  }
+
+  .feature-box:hover{ transform: translateY(-6px) scale(1.03); }
+
+  .feature-box .feature-emoji{ font-size: 30px }
+  .feature-box p{ margin:0; font-weight:800; color: #223033; font-size: 15px }
+
+  .feature-box.active{
+    transform: scale(1.28);
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: white;
+    box-shadow: 0 30px 90px rgba(69,126,147,0.32);
+    z-index: 50;
+  }
+
+  .feature-box.active .feature-emoji{ font-size: 40px }
+  .feature-box.active p{ color: white; font-size: 17px }
+  .feature-box.dim{ opacity: 0.35; transform: scale(0.96); }
+
+  /* (landing-root overflow handled above) */
+
+  .features .feature-item{ text-align:center; min-width:120px }
+  .feature-emoji{ font-size:28px }
+
+  /* Explore: use page-level scrolling (visible scrollbar) instead of internal scroll */
+  .explore-list{
+    /* allow the list to expand naturally; no internal scroll */
+    padding-right: 0;
+    display: grid; /* ensure grid display remains available */
+  }
+
+  /* A wrapper that makes the Explore page itself scrollable and shows a scrollbar
+     (overrides the global hidden-scrollbar defaults for this area) */
+  .explore-root{
+    height: calc(100vh - 110px); /* account for header height */
+    overflow-y: auto;
+    padding: 20px 24px;
+    -ms-overflow-style: auto;
+    scrollbar-width: thin;
+  }
+
+  .explore-root::-webkit-scrollbar{ width: 10px }
+  .explore-root::-webkit-scrollbar-thumb{ background: rgba(0,0,0,0.18); border-radius: 8px }
+
+  /* Left panel for course detail: attach to top-left corner of the scroll area */
+  .explore-left-panel{
+    position: sticky;
+    top: 20px; /* below header/sticky spacing */
+    align-self: flex-start;
+    margin-left: 0;
+  }
+
+  /* Explore card sizing for 3-per-row grid */
+  .explore-list .explore-card{
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: white;
+  }
+
+  .btn-secondary {
+    background: linear-gradient(135deg, #ffffff 0%, #f2f7fb 100%);
+    color: var(--accent-strong);
+    box-shadow: 0 6px 18px rgba(69,126,147,0.08);
+  }
+
+  .btn-success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+  }
+
+  .btn-warning {
+    background: linear-gradient(135deg, rgb(187, 233, 255) 0%, rgb(214, 236, 246) 100%);
+    color: white;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: #66d8ea;
+    box-shadow: 0 0 10px rgb(62, 102, 121);
+  }
+
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-in {
+    animation: fadeIn 0.5s ease;
+  }
+
+  .error-text {
+    color: #f5576c;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .success-message {
+    background: #2c828e;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
