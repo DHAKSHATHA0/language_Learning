@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/global.css';
+import Footer from './Footer';
 
 function Landing({ onNavigate }) {
   const [activeFeature, setActiveFeature] = useState(null);
@@ -57,7 +58,7 @@ function Landing({ onNavigate }) {
         </div>
         
       </main>
-      
+      <Footer />
     </div>
   );
 }

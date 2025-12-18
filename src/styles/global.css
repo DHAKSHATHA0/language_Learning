@@ -1,7 +1,9 @@
 
   :root{
-    --accent: #457e93ff; /* user's requested panel color */
-    --accent-strong: #355f72;
+    --accent: #6B3A6F; /* dark purple primary */
+    --accent-strong: #4a2652;
+    --secondary: #A8D8EA; /* light blue accent */
+    --tertiary: #E8B4D4; /* light pink accent */
     --card-bg: rgba(255,255,255,0.92);
   }
 
@@ -35,7 +37,7 @@
 
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, rgb(117, 237, 233) 0%, rgb(187, 233, 255) 100%);
+    background: linear-gradient(135deg, #E8B4D4 0%, #A8D8EA 50%, #6B3A6F 100%);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -72,7 +74,7 @@
 
   /* Give the header the landing accent color across all pages */
   .site-header{
-    background: linear-gradient(90deg, rgba(69,126,147,0.98), rgba(53,95,114,0.98));
+    background: linear-gradient(90deg, rgba(107,58,111,0.98), rgba(74,38,82,0.98));
     color: white;
     width: 100%;
     box-shadow: 0 6px 24px rgba(8,19,28,0.18);
@@ -120,7 +122,7 @@
     transition: transform 160ms ease, background 160ms ease;
   }
 
-  .back-btn:hover{ transform: translateX(-3px); background: rgba(255,255,255,0.12); }
+  .back-btn:hover{ transform: translateX(-3px); background: rgba(232, 180, 212, 0.3); }
 
   .auth-buttons { display: flex; gap: 12px; align-items: center; }
 
@@ -143,7 +145,7 @@
 
   /* make hero content visually merged with background (no colored card) */
   /* removed hero-card as content now sits directly on background */
-  .hero-title{ font-size: 52px; color: var(--accent-strong); margin-bottom: 10px; text-shadow: 0 1px 0 rgba(255,255,255,0.6); }
+  .hero-title{ font-size: 52px; color: #6B3A6F; margin-bottom: 10px; text-shadow: 0 1px 0 rgba(255,255,255,0.6); }
   .hero-sub{ color: rgba(0,0,0,0.78); font-size: 18px; margin-bottom: 10px; }
 
   /* Feature boxes */
@@ -169,13 +171,13 @@
   .feature-box:hover{ transform: translateY(-6px) scale(1.03); }
 
   .feature-box .feature-emoji{ font-size: 30px }
-  .feature-box p{ margin:0; font-weight:800; color: #223033; font-size: 15px }
+  .feature-box p{ margin:0; font-weight:800; color: #6B3A6F; font-size: 15px }
 
   .feature-box.active{
     transform: scale(1.28);
-    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    background: linear-gradient(135deg, #E8B4D4, #6B3A6F);
     color: white;
-    box-shadow: 0 30px 90px rgba(69,126,147,0.32);
+    box-shadow: 0 30px 90px rgba(107, 58, 111, 0.4);
     z-index: 50;
   }
 
@@ -206,7 +208,7 @@
   }
 
   .explore-root::-webkit-scrollbar{ width: 10px }
-  .explore-root::-webkit-scrollbar-thumb{ background: rgba(0,0,0,0.18); border-radius: 8px }
+  .explore-root::-webkit-scrollbar-thumb{ background: #E8B4D4; border-radius: 8px }
 
   /* Left panel for course detail: attach to top-left corner of the scroll area */
   .explore-left-panel{
@@ -238,7 +240,8 @@
 
   .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(107, 58, 111, 0.4);
+    background: linear-gradient(135deg, #E8B4D4, #6B3A6F) !important;
   }
 
   .btn-primary {
@@ -246,44 +249,60 @@
     color: white;
   }
 
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #E8B4D4, #6B3A6F) !important;
+  }
+
   .btn-secondary {
-    background: linear-gradient(135deg, #ffffff 0%, #f2f7fb 100%);
-    color: var(--accent-strong);
-    box-shadow: 0 6px 18px rgba(69,126,147,0.08);
+    background: linear-gradient(135deg, #E8B4D4 0%, #A8D8EA 100%);
+    color: #6B3A6F;
+    box-shadow: 0 6px 18px rgba(232,180,212,0.2);
   }
 
   .btn-success {
-    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    background: linear-gradient(135deg, #6B3A6F 0%, #4a2652 100%);
     color: white;
   }
 
+  .btn-success:hover {
+    background: linear-gradient(135deg, #E8B4D4 0%, #A8D8EA 100%) !important;
+    color: #6B3A6F;
+  }
+
   .btn-warning {
-    background: linear-gradient(135deg, rgb(187, 233, 255) 0%, rgb(214, 236, 246) 100%);
+    background: linear-gradient(135deg, #6B3A6F 0%, #4a2652 100%);
     color: white;
+  }
+
+  .btn-warning:hover {
+    background: linear-gradient(135deg, #E8B4D4 0%, #6B3A6F 100%) !important;
   }
 
   .input-field {
     width: 100%;
     padding: 15px;
-    border: 2px solid #ddd;
+    border: 2px solid #E8B4D4;
     border-radius: 15px;
     font-size: 16px;
     margin-bottom: 15px;
     transition: all 0.3s ease;
+    color: #6B3A6F;
   }
 
   .input-field:focus {
     outline: none;
-    border-color: #66d8ea;
-    box-shadow: 0 0 10px rgb(62, 102, 121);
+    border-color: #E8B4D4;
+    box-shadow: 0 0 10px #6B3A6F;
+    background: rgba(232, 180, 212, 0.05);
   }
 
   .card {
     background: white;
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(107, 58, 111, 0.15);
     margin-bottom: 20px;
+    border-top: 4px solid #E8B4D4;
   }
 
   @keyframes fadeIn {
@@ -302,7 +321,7 @@
   }
 
   .error-text {
-    color: #f5576c;
+    color: #6B3A6F;
     font-size: 14px;
     margin-top: -10px;
     margin-bottom: 10px;
@@ -310,11 +329,14 @@
   }
 
   .success-message {
-    background: #2c828e;
+    background: linear-gradient(135deg, #6B3A6F, #A8D8EA);
     color: white;
     padding: 15px;
     border-radius: 15px;
     margin-bottom: 20px;
     text-align: center;
     font-weight: bold;
+    border-left: 4px solid #E8B4D4;
   }
+
+  

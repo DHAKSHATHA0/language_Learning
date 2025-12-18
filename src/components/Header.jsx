@@ -58,11 +58,12 @@ function Header({ page, onNavigate, onBack, registeredCourses = [], onNavigatePr
       );
     }
 
-    // Settings page: show Profile, About and Logout buttons (these act as the settings sub-menu)
+    // Settings page: show Profile, Badges, About and Logout buttons (these act as the settings sub-menu)
     if (page === 'settings') {
       return (
         <>
           <button className="btn btn-outline" onClick={() => onSettingsNavigate && onSettingsNavigate('profile')}>Profile</button>
+          <button className="btn btn-outline" onClick={() => onSettingsNavigate && onSettingsNavigate('badges')}>Badges</button>
           <button className="btn btn-outline" onClick={() => onSettingsNavigate && onSettingsNavigate('about')}>About</button>
           <button className="btn btn-outline" onClick={() => onLogout && onLogout()}>Logout</button>
         </>

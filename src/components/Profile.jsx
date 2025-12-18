@@ -1,6 +1,7 @@
 import '../styles/global.css';
 import { useState } from 'react';
 import MyCourses from './MyCourses.jsx';
+import Footer from './Footer';
 
 function Profile({ userData, onNavigate, registeredCourses = [], onSelectLesson, onSelectLanguage }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -109,8 +110,7 @@ function Profile({ userData, onNavigate, registeredCourses = [], onSelectLesson,
             <p>You have not registered for any courses. Go to Home → Get Started to add courses.</p>
           </div>
         )}
-      </div>
-    </div>
+      </div>      <Footer />    </div>
   );
 }
 
