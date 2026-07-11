@@ -1,5 +1,5 @@
 // Frontend API Service - Centralized API calls
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://language-learning-backend.onrender.com/api';
 
 // Get token from localStorage
 const getToken = () => localStorage.getItem('token');
